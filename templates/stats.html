@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}AI HealthCare Analyzer — Model Stats{% endblock %}
+{% block content %}
+<section class="page-hero container">
+  <div><span class="eyebrow">Model performance</span><h1>System <span>Statistics</span></h1><p>A clear view of the metrics currently reported by the application.</p></div>
+</section>
+<section class="container stats-section">
+  <div class="metrics-grid">
+    <div class="metric-card"><span class="metric-label">Symptom model</span><strong>{{ disease_accuracy }}%</strong><p>Decision Tree accuracy</p></div>
+    <div class="metric-card"><span class="metric-label">Heart model</span><strong>{{ heart_accuracy }}%</strong><p>Random Forest accuracy</p></div>
+    <div class="metric-card"><span class="metric-label">Conditions</span><strong>{{ num_diseases }}</strong><p>Supported by symptom model</p></div>
+    <div class="metric-card"><span class="metric-label">Symptoms</span><strong>{{ num_symptoms }}</strong><p>Tracked symptom inputs</p></div>
+  </div>
+
+  <div class="model-grid">
+    <div class="analysis-card">
+      <span class="mini-label">01 · SYMPTOM DETECTOR</span><h2>Decision Tree Classifier</h2>
+      <div class="metric-line"><span>Reported accuracy</span><strong>{{ disease_accuracy }}%</strong></div>
+      <div class="metric-bar"><span style="width: {{ disease_accuracy }}%"></span></div>
+      <div class="stat-detail"><span>Conditions <strong>{{ num_diseases }}</strong></span><span>Symptoms <strong>{{ num_symptoms }}</strong></span></div>
+    </div>
+    <div class="analysis-card">
+      <span class="mini-label">02 · HEART DETECTOR</span><h2>Random Forest Classifier</h2>
+      <div class="metric-line"><span>Reported accuracy</span><strong>{{ heart_accuracy }}%</strong></div>
+      <div class="metric-bar"><span style="width: {{ heart_accuracy }}%"></span></div>
+      <div class="stat-detail"><span>Clinical inputs <strong>13</strong></span><span>Screening model <strong>RF</strong></span></div>
+    </div>
+  </div>
+
+  <div class="note-card"><span>i</span><p>Accuracy values are calculated from the test split used by the project's model pipeline. They should not be interpreted as clinical accuracy or proof of medical effectiveness.</p></div>
+</section>
+{% endblock %}

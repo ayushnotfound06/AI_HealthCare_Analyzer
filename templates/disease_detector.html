@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}AI HealthCare Analyzer — Detection{% endblock %}
+{% block content %}
+<section class="page-hero container">
+  <div><span class="eyebrow">Analysis workspace</span><h1>Health <span>Detection</span></h1><p>Choose a module below and provide the information requested by the model.</p></div>
+</section>
+
+<section class="container detector-section">
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="symptoms"><span>01</span> Symptom Tracker</button>
+    <button class="tab-btn" data-tab="heart"><span>02</span> Heart Disease Detector</button>
+  </div>
+
+  <div class="tab-panel active" id="panel-symptoms">
+    <div class="analysis-card">
+      <div class="card-header-row">
+        <div><span class="mini-label">SYMPTOM CLASSIFIER</span><h2>What are you experiencing?</h2><p>Select the symptoms that best match the current condition.</p></div>
+        <div class="step-badge">Step 1</div>
+      </div>
+      <div class="search-wrap">
+        <span>⌕</span><input type="text" class="symptom-search" id="symptomSearch" placeholder="Search symptoms — fever, headache, chest pain...">
+      </div>
+      <div class="selection-bar"><span><strong class="selected-count" id="selectedCount">0</strong> symptoms selected</span><span class="selection-hint">Select all relevant symptoms</span></div>
+      <div class="symptom-grid" id="symptomGrid">
+        {% for symptom in symptoms %}
+        <label class="symptom-chip" data-label="{{ humanize(symptom).lower() }}">
+          <input type="checkbox" name="symptom" value="{{ symptom }}">
+          <span class="checkmark">✓</span>{{ humanize(symptom) }}
+        </label>
+        {% endfor %}
+      </div>
+      <div class="action-row">
+        <button class="btn btn-primary" id="predictSymptomsBtn">Predict Disease <span>→</span></button>
+        <span class="privacy-note">Results are model-generated and for educational use.</span>
+      </div>
+      <div class="result-panel" id="symptomResult"></div>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="panel-heart">
+    <div class="analysis-card">
+      <div class="card-header-row">
+        <div><span class="mini-label">HEART RISK MODEL</span><h2>Clinical input screening</h2><p>Enter the clinical values required by the heart-disease model.</p></div>
+        <div class="step-badge">13 inputs</div>
+      </div>
+      <div class="notice"><span>i</span><p>Use values from a recent medical report where possible. This model is a screening tool, not a medical diagnosis.</p></div>
+      <form id="heartForm">
+        <div class="form-grid">
+          <div class="field"><label for="age">Age <span>years</span></label><input type="number" id="age" min="1" max="120" required placeholder="45"></div>
+          <div class="field"><label for="sex">Sex</label><select id="sex" required><option value="1">Male</option><option value="0">Female</option></select></div>
+          <div class="field"><label for="cp">Chest Pain Type</label><select id="cp" required><option value="0">Typical Angina</option><option value="1">Atypical Angina</option><option value="2">Non-anginal Pain</option><option value="3">Asymptomatic</option></select></div>
+          <div class="field"><label for="trestbps">Resting Blood Pressure <span>mm Hg</span></label><input type="number" id="trestbps" min="60" max="250" required placeholder="130"></div>
+          <div class="field"><label for="chol">Serum Cholesterol <span>mg/dl</span></label><input type="number" id="chol" min="100" max="600" required placeholder="220"></div>
+          <div class="field"><label for="fbs">Fasting Blood Sugar <span>&gt;120 mg/dl?</span></label><select id="fbs" required><option value="0">No</option><option value="1">Yes</option></select></div>
+          <div class="field"><label for="restecg">Resting ECG Result</label><select id="restecg" required><option value="0">Normal</option><option value="1">ST-T Wave Abnormality</option><option value="2">Left Ventricular Hypertrophy</option></select></div>
+          <div class="field"><label for="thalach">Maximum Heart Rate</label><input type="number" id="thalach" min="60" max="220" required placeholder="150"></div>
+          <div class="field"><label for="exang">Exercise-Induced Angina</label><select id="exang" required><option value="0">No</option><option value="1">Yes</option></select></div>
+          <div class="field"><label for="oldpeak">ST Depression <span>oldpeak</span></label><input type="number" step="0.1" id="oldpeak" min="0" max="10" required placeholder="1.2"></div>
+          <div class="field"><label for="slope">Peak ST Segment Slope</label><select id="slope" required><option value="0">Upsloping</option><option value="1">Flat</option><option value="2">Downsloping</option></select></div>
+          <div class="field"><label for="ca">Major Vessels Colored <span>0–3</span></label><select id="ca" required><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div>
+          <div class="field"><label for="thal">Thalassemia</label><select id="thal" required><option value="0">Normal</option><option value="1">Fixed Defect</option><option value="2">Reversible Defect</option><option value="3">Unknown</option></select></div>
+        </div>
+        <div class="action-row"><button type="submit" class="btn btn-primary">Assess Heart Disease Risk <span>→</span></button></div>
+      </form>
+      <div class="result-panel" id="heartResult"></div>
+    </div>
+  </div>
+</section>
+{% endblock %}

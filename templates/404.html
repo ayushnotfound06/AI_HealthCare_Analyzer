@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page Not Found — AI HealthCare Analyzer</title>
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="error-body">
+  <div class="site-bg" aria-hidden="true"></div>
+  <main class="error-page">
+    <div class="error-mark">AH</div>
+    <div class="error-code">404</div>
+    <h1>Page not found.</h1>
+    <p>The page you're looking for doesn't exist or may have moved.</p>
+    <a class="btn btn-primary" href="{{ url_for('home') }}">Return to Home <span>→</span></a>
+  </main>
+</body>
+</html>

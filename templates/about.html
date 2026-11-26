@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}AI HealthCare Analyzer — About{% endblock %}
+{% block content %}
+<section class="page-hero container">
+  <div><span class="eyebrow">About the project</span><h1>Built for <span>smarter learning.</span></h1><p>A 3rd Year Minor Project exploring how machine learning can support structured healthcare-related analysis.</p></div>
+</section>
+
+<section class="container about-grid">
+  <div class="about-main">
+    <div class="analysis-card">
+      <span class="mini-label">PROJECT OVERVIEW</span>
+      <h2>AI HealthCare Analyzer</h2>
+      <p>This project combines a symptom-based disease classifier with a heart-disease risk screening model in one web interface. The goal is to demonstrate a practical machine-learning workflow from user input to model output.</p>
+      <p>The application is intended for educational and demonstration purposes. Its predictions should not replace evaluation or advice from a qualified healthcare professional.</p>
+    </div>
+    <div class="about-tech">
+      <span class="mini-label">PROJECT FLOW</span>
+      <div class="flow-list">
+        <div><span>01</span><strong>User input</strong><p>Symptoms or clinical values are entered through the interface.</p></div>
+        <div><span>02</span><strong>ML inference</strong><p>The corresponding trained model processes the supplied features.</p></div>
+        <div><span>03</span><strong>Structured output</strong><p>The application presents the model response in a readable format.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="team-card">
+    <span class="mini-label">PROJECT TEAM</span>
+    <h2>Jaypee University Anoopshahr</h2>
+    <p>B.Tech Computer Science &amp; Engineering<br>3rd Year · Minor Project</p>
+    <div class="member"><span>AD</span><div><strong>Ayush Dubey</strong><small>8824103091</small></div></div>
+    <div class="member"><span>YS</span><div><strong>Yash Sharma</strong><small>8824103083</small></div></div>
+    <div class="member"><span>AJ</span><div><strong>Aadi Jain</strong><small>8824103003</small></div></div>
+    <div class="member"><span>AC</span><div><strong>Ashutosh Chauhan</strong><small>8824103096</small></div></div>
+  </aside>
+</section>
+{% endblock %}
