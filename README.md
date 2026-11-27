@@ -1,7 +1,6 @@
 # IntelliHealthcare — Intelligent Healthcare Symptom Analysis System
 
-3rd Year - Minor Project · Department of Informatics & Systems, School of Systems &
-Technology, University of Management and Technology (UMT), Lahore, Pakistan.
+3rd Year - Minor Project
 
 **Team:** Ayush Dubey (8824103091), Yash Sharma (8824103083), Aadi Jain  (8824103003), Ashutosh Chauhan (8824103096)
 
